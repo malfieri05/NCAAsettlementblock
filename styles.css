@@ -770,26 +770,26 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 .form-divider {
     height: 1px;
     background: linear-gradient(90deg, transparent, var(--gray-lighter), transparent);
-    margin: 32px 0 24px;
+    margin: 24px 0 16px;
 }
 
 .form-section-title {
     font-size: 18px;
     font-weight: 700;
     color: var(--dark);
-    margin-bottom: 20px;
+    margin-bottom: 12px;
     padding-left: 12px;
     border-left: 4px solid var(--primary);
 }
 
 .form-group {
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 .form-group label {
