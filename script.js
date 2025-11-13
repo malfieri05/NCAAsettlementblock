@@ -189,6 +189,6 @@ function trackFormSubmission(formData) {
 }
 
 // Note: Form submissions are now sent via email to:
-// - isaachodgins@outlook.com
-// - malfieri05@gmail.com (CC)
+// - malfieri05@gmail.com (primary)
+// - isaachodgins@outlook.com (CC)
 

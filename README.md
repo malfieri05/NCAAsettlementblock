@@ -3,12 +3,12 @@
 ## Form Submission Email Notifications
 
 Form submissions are automatically sent via email to:
-- **Primary:** isaachodgins@outlook.com
-- **CC:** malfieri05@gmail.com
+- **Primary:** malfieri05@gmail.com
+- **CC:** isaachodgins@outlook.com
 
 ### Important: First-Time Setup
 
-**The first time someone submits the form**, FormSubmit will send a verification email to `isaachodgins@outlook.com`. 
+**The first time someone submits the form**, FormSubmit will send a verification email to `malfieri05@gmail.com`. 
 
 **You MUST click the verification link in that email to activate the form.**
 
@@ -37,7 +37,7 @@ Emails arrive with:
 ### Testing the Form
 
 1. Submit a test application through the website
-2. Check isaachodgins@outlook.com inbox for verification email (first time only)
+2. Check malfieri05@gmail.com inbox for verification email (first time only)
 3. Click verification link
 4. Submit another test - both emails should receive it
 5. Verify all form fields are captured correctly
