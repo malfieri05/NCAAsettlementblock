@@ -784,8 +784,8 @@ section {
     font-weight: 700;
     color: var(--dark);
     margin-bottom: 12px;
-    padding-left: 12px;
-    border-left: 4px solid var(--primary);
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--dark);
 }
 
 .form-group {
