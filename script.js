@@ -47,37 +47,27 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Get form data
-        const formData = {
-            firstName: document.getElementById('firstName').value,
-            lastName: document.getElementById('lastName').value,
-            email: document.getElementById('email').value,
-            phone: document.getElementById('phone').value,
-            claimId: document.getElementById('claimId').value,
-            ncaaEligibilityId: document.getElementById('ncaaEligibilityId').value,
-            claimSize: document.getElementById('claimSize').value,
-            school: document.getElementById('school').value,
-            sport: document.getElementById('sport').value,
-            timestamp: new Date().toISOString()
-        };
-
         // Disable submit button and show loading state
         const submitButton = form.querySelector('button[type="submit"]');
         submitButton.disabled = true;
         submitButton.querySelector('.button-text').style.display = 'none';
         submitButton.querySelector('.button-loading').style.display = 'inline';
 
-        // Simulate form submission (replace with actual API call)
-        console.log('Form submitted:', formData);
+        // Get form data
+        const formData = new FormData(form);
         
-        // Store in localStorage for demo purposes
-        // In production, replace with API call to your backend
-        const submissions = JSON.parse(localStorage.getItem('blockSubmissions') || '[]');
-        submissions.push(formData);
-        localStorage.setItem('blockSubmissions', JSON.stringify(submissions));
-
-        // Simulate network delay
-        setTimeout(() => {
+        // Send to FormSubmit
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Form submitted successfully:', data);
+            
             // Hide form and show success message
             form.style.display = 'none';
             successMessage.style.display = 'block';
@@ -85,14 +75,20 @@ document.addEventListener('DOMContentLoaded', function() {
             // Scroll to success message
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Reset button state (in case user wants to submit another)
+            // Reset button state
             submitButton.disabled = false;
             submitButton.querySelector('.button-text').style.display = 'inline';
             submitButton.querySelector('.button-loading').style.display = 'none';
+        })
+        .catch(error => {
+            console.error('Error submitting form:', error);
+            alert('There was an error submitting your application. Please try again or contact us directly at 925-759-0895.');
             
-            // Optional: Send data to your backend
-            // sendToBackend(formData);
-        }, 1500);
+            // Re-enable button
+            submitButton.disabled = false;
+            submitButton.querySelector('.button-text').style.display = 'inline';
+            submitButton.querySelector('.button-loading').style.display = 'none';
+        });
     });
 
     // Smooth scroll for navigation links
@@ -192,20 +188,7 @@ function trackFormSubmission(formData) {
     }
 }
 
-// View stored submissions in console (for testing)
-function viewSubmissions() {
-    const submissions = JSON.parse(localStorage.getItem('blockSubmissions') || '[]');
-    console.table(submissions);
-    return submissions;
-}
-
-// Clear submissions (for testing)
-function clearSubmissions() {
-    localStorage.removeItem('blockSubmissions');
-    console.log('Submissions cleared');
-}
-
-// Export functions for testing
-window.viewSubmissions = viewSubmissions;
-window.clearSubmissions = clearSubmissions;
+// Note: Form submissions are now sent via email to:
+// - isaachodgins@outlook.com
+// - malfieri05@gmail.com (CC)
 
