@@ -1,5 +1,5 @@
 # Investment Comparables & Competitive Positioning
-## $50M Verified NCAA Settlement Block
+## $25M Verified NCAA Settlement Block
 
 ---
 
@@ -102,7 +102,7 @@
 - Higher per-unit costs
 
 **Our Block:**
-- ✅ Instant diversification across $50M+ of claims
+- ✅ Instant diversification across $25M+ of claims
 - ✅ Single transaction vs. hundreds of individual purchases
 - ✅ Economies of scale in pricing and execution
 - ✅ Meets institutional minimum investment thresholds
@@ -157,7 +157,7 @@
    - Eliminates the binary win/lose risk of active litigation
 
 2. **"Institutional Scale, Operational Simplicity"**
-   - $50M+ block eliminates the need to source and verify hundreds of individual claims
+   - $25M+ block eliminates the need to source and verify hundreds of individual claims
    - Single transaction vs. complex portfolio construction
    - Pre-verified documentation reduces buyer due diligence burden
 
@@ -180,11 +180,11 @@
 
 ## COMPETITIVE ADVANTAGE SUMMARY
 
-| Feature | Traditional Options | Our $50M Block |
+| Feature | Traditional Options | Our $25M Block |
 |---------|-------------------|----------------|
 | **Risk Level** | Ongoing litigation risk | Pre-approved settlement |
 | **Verification** | Buyer conducts DD | Pre-verified, documented |
-| **Scale** | Individual contracts | $50M+ aggregated block |
+| **Scale** | Individual contracts | $25M+ aggregated block |
 | **Operational Burden** | High (ongoing management) | Low (passive, turnkey) |
 | **Timeline** | 3-7 years (litigation) or 20-30 years (annuities) | 18-24 months |
 | **Yield Potential** | 2-5% (fixed-income) or 15-25% IRR (high-risk litigation) | Competitive with enhanced risk-adjusted profile |
