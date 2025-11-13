@@ -3,6 +3,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('joinForm');
     const successMessage = document.getElementById('successMessage');
 
+    // Countdown Timer to December 15, 2025
+    function updateCountdown() {
+        const now = new Date();
+        const targetDate = new Date('December 15, 2025 23:59:59');
+        const timeRemaining = targetDate - now;
+
+        if (timeRemaining <= 0) {
+            document.getElementById('countdown-timer').textContent = 'Target Reached!';
+            return;
+        }
+
+        const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+        document.getElementById('countdown-timer').textContent = 
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    // Update countdown immediately and then every second
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
     // Phone number formatting
     const phoneInput = document.getElementById('phone');
     phoneInput.addEventListener('input', function(e) {

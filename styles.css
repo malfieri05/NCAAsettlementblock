@@ -167,6 +167,11 @@ body {
     margin-bottom: 8px;
 }
 
+#countdown-timer {
+    font-size: 36px;
+    letter-spacing: 1px;
+}
+
 .stat-label {
     font-size: 16px;
     color: var(--gray-light);
@@ -995,6 +1000,10 @@ section {
         font-size: 36px;
     }
     
+    #countdown-timer {
+        font-size: 28px;
+    }
+    
     .what-is-grid {
         grid-template-columns: 1fr;
     }
@@ -1049,6 +1058,10 @@ section {
     .hero-stats {
         grid-template-columns: 1fr;
         gap: 32px;
+    }
+    
+    #countdown-timer {
+        font-size: 24px;
     }
     
     .section-title {
