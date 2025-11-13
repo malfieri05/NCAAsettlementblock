@@ -207,11 +207,10 @@ body {
 }
 
 .countdown-seconds {
-    display: block;
+    display: inline-block;
     font-size: 80%;
     opacity: 0.9;
-    line-height: 1;
-    margin-top: 4px;
+    line-height: 1.2;
 }
 
 .stat-label {
@@ -1074,7 +1073,7 @@ section {
     }
     
     .countdown-seconds {
-        margin-top: 2px;
+        font-size: 80%;
     }
     
     .what-is-grid {
@@ -1171,7 +1170,6 @@ section {
     }
     
     .countdown-seconds {
-        margin-top: 2px;
         font-size: 75%;
     }
     
@@ -1318,7 +1316,6 @@ section {
     }
     
     .countdown-seconds {
-        margin-top: 2px;
         font-size: 70%;
     }
     
