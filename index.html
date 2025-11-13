@@ -191,27 +191,45 @@
                     <form id="joinForm" class="join-form">
                         <div class="form-header">
                             <h3>Get Started</h3>
-                            <p>All fields required</p>
+                            <p>All fields required (unless marked optional)</p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+                            </div>
+                        </div>
+
+                        <div class="form-divider"></div>
+
+                        <div class="form-section-title">Claim Information</div>
+
+                        <div class="form-group">
+                            <label for="claimId">Claim ID</label>
+                            <input type="text" id="claimId" name="claimId" placeholder="Enter your settlement claim ID" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="firstName">First Name</label>
-                            <input type="text" id="firstName" name="firstName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="lastName">Last Name</label>
-                            <input type="text" id="lastName" name="lastName" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(555) 555-5555" required>
+                            <label for="ncaaEligibilityId">NCAA Eligibility Center ID#</label>
+                            <input type="text" id="ncaaEligibilityId" name="ncaaEligibilityId" placeholder="Enter your NCAA Eligibility Center ID" required>
                         </div>
 
                         <div class="form-group">
@@ -227,19 +245,20 @@
                             </select>
                         </div>
 
-                        <div class="form-group">
-                            <label for="ncaaId">NCAA Eligibility ID (if available)</label>
-                            <input type="text" id="ncaaId" name="ncaaId" placeholder="Optional">
-                        </div>
+                        <div class="form-divider"></div>
 
-                        <div class="form-group">
-                            <label for="school">School/University</label>
-                            <input type="text" id="school" name="school" placeholder="Where did you play?" required>
-                        </div>
+                        <div class="form-section-title">Athletic Background</div>
 
-                        <div class="form-group">
-                            <label for="sport">Sport</label>
-                            <input type="text" id="sport" name="sport" placeholder="e.g., Football, Basketball" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="school">School/University</label>
+                                <input type="text" id="school" name="school" placeholder="Where did you play?" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sport">Sport</label>
+                                <input type="text" id="sport" name="sport" placeholder="e.g., Football, Basketball" required>
+                            </div>
                         </div>
 
                         <div class="form-group checkbox-group">
@@ -250,7 +269,7 @@
                         </div>
 
                         <button type="submit" class="cta-button primary full-width">
-                            <span class="button-text">Submit Application</span>
+                            <span class="button-text">Submit Info</span>
                             <span class="button-loading" style="display: none;">Processing...</span>
                         </button>
 
