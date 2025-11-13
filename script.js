@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
             claimSize: document.getElementById('claimSize').value,
             school: document.getElementById('school').value,
             sport: document.getElementById('sport').value,
-            consent: document.getElementById('consent').checked,
             timestamp: new Date().toISOString()
         };
 
