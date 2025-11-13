@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const timeRemaining = targetDate - now;
 
         if (timeRemaining <= 0) {
-            document.getElementById('countdown-timer').textContent = 'Target Reached!';
+            document.getElementById('countdown-timer').innerHTML = 'Target Reached!';
             return;
         }
 
@@ -19,8 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-        document.getElementById('countdown-timer').textContent = 
-            `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        document.getElementById('countdown-timer').innerHTML = 
+            `<span class="countdown-main">${days}d ${hours}h ${minutes}m</span><span class="countdown-seconds">${seconds}s</span>`;
     }
 
     // Update countdown immediately and then every second
@@ -138,6 +138,34 @@ document.addEventListener('DOMContentLoaded', function() {
             // Toggle current item
             item.classList.toggle('active');
         });
+    });
+
+    // Mobile tooltip functionality - make info icons clickable
+    const infoIcons = document.querySelectorAll('.info-icon');
+    
+    infoIcons.forEach(icon => {
+        icon.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Close all other tooltips
+            infoIcons.forEach(otherIcon => {
+                if (otherIcon !== icon) {
+                    otherIcon.classList.remove('active');
+                }
+            });
+            
+            // Toggle current tooltip
+            this.classList.toggle('active');
+        });
+    });
+
+    // Close tooltips when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.info-icon')) {
+            infoIcons.forEach(icon => {
+                icon.classList.remove('active');
+            });
+        }
     });
 });
 
