@@ -1,0 +1,168 @@
+// Form Handling
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('joinForm');
+    const successMessage = document.getElementById('successMessage');
+
+    // Phone number formatting
+    const phoneInput = document.getElementById('phone');
+    phoneInput.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/\D/g, '');
+        if (value.length > 0) {
+            if (value.length <= 3) {
+                value = '(' + value;
+            } else if (value.length <= 6) {
+                value = '(' + value.slice(0, 3) + ') ' + value.slice(3);
+            } else {
+                value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6, 10);
+            }
+        }
+        e.target.value = value;
+    });
+
+    // Form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+            firstName: document.getElementById('firstName').value,
+            lastName: document.getElementById('lastName').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            claimSize: document.getElementById('claimSize').value,
+            ncaaId: document.getElementById('ncaaId').value,
+            school: document.getElementById('school').value,
+            sport: document.getElementById('sport').value,
+            consent: document.getElementById('consent').checked,
+            timestamp: new Date().toISOString()
+        };
+
+        // Disable submit button and show loading state
+        const submitButton = form.querySelector('button[type="submit"]');
+        submitButton.disabled = true;
+        submitButton.querySelector('.button-text').style.display = 'none';
+        submitButton.querySelector('.button-loading').style.display = 'inline';
+
+        // Simulate form submission (replace with actual API call)
+        console.log('Form submitted:', formData);
+        
+        // Store in localStorage for demo purposes
+        // In production, replace with API call to your backend
+        const submissions = JSON.parse(localStorage.getItem('blockSubmissions') || '[]');
+        submissions.push(formData);
+        localStorage.setItem('blockSubmissions', JSON.stringify(submissions));
+
+        // Simulate network delay
+        setTimeout(() => {
+            // Hide form and show success message
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+            
+            // Scroll to success message
+            successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            // Reset button state (in case user wants to submit another)
+            submitButton.disabled = false;
+            submitButton.querySelector('.button-text').style.display = 'inline';
+            submitButton.querySelector('.button-loading').style.display = 'none';
+            
+            // Optional: Send data to your backend
+            // sendToBackend(formData);
+        }, 1500);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add scroll effect to navigation
+    const nav = document.querySelector('.nav');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+        const currentScroll = window.pageYOffset;
+        
+        if (currentScroll > 100) {
+            nav.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+        } else {
+            nav.style.boxShadow = 'none';
+        }
+        
+        lastScroll = currentScroll;
+    });
+});
+
+// Function to send data to your backend (implement as needed)
+function sendToBackend(formData) {
+    // Example using fetch API
+    /*
+    fetch('https://your-api-endpoint.com/submissions', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Success:', data);
+        // You can add additional success handling here
+        // For example, sending to a CRM, email service, etc.
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        alert('There was an error submitting your application. Please try again.');
+    });
+    */
+    
+    // Example: Send to Google Sheets, Airtable, or your preferred backend
+    // This is just a placeholder - implement based on your infrastructure
+}
+
+// Optional: Add analytics tracking
+function trackFormSubmission(formData) {
+    // Google Analytics example
+    if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_submission', {
+            'event_category': 'Block Application',
+            'event_label': 'Join Form',
+            'value': formData.claimSize
+        });
+    }
+    
+    // Facebook Pixel example
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            content_name: 'Block Application',
+            value: formData.claimSize
+        });
+    }
+}
+
+// View stored submissions in console (for testing)
+function viewSubmissions() {
+    const submissions = JSON.parse(localStorage.getItem('blockSubmissions') || '[]');
+    console.table(submissions);
+    return submissions;
+}
+
+// Clear submissions (for testing)
+function clearSubmissions() {
+    localStorage.removeItem('blockSubmissions');
+    console.log('Submissions cleared');
+}
+
+// Export functions for testing
+window.viewSubmissions = viewSubmissions;
+window.clearSubmissions = clearSubmissions;
+
