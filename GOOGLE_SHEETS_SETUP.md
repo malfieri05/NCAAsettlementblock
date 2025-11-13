@@ -15,8 +15,7 @@ Follow these steps to connect your form submissions to Google Sheets:
    - F1: `Claim Size`
    - G1: `NCAA Eligibility Center ID`
    - H1: `Sport`
-   - I1: `Years Played`
-   - J1: `Institution`
+   - I1: `School/Institution`
 
 ## Step 2: Add the Apps Script
 

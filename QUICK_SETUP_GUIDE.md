@@ -5,7 +5,7 @@
 ### 1. Set Up Google Sheet Headers (1 minute)
 Open your sheet and add these headers in Row 1:
 ```
-Timestamp | Name | Email | Phone | Claim ID | Claim Size | NCAA Eligibility Center ID | Sport | Years Played | Institution
+Timestamp | Name | Email | Phone | Claim ID | Claim Size | NCAA Eligibility Center ID | Sport | School/Institution
 ```
 
 ### 2. Add Apps Script (2 minutes)

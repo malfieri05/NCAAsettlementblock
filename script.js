@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get form data
         const formData = new FormData(form);
         
-        // Send to FormSubmit
+        // Send to Google Apps Script (also sends emails automatically)
         fetch(form.action, {
             method: 'POST',
             body: formData,
@@ -217,7 +217,8 @@ function trackFormSubmission(formData) {
     }
 }
 
-// Note: Form submissions are now sent via email to:
-// - malfieri05@gmail.com (primary)
-// - isaachodgins@outlook.com (CC)
+// Note: Form submissions are automatically:
+// 1. Saved to Google Sheets (spreadsheet ID: 1_Zbzs0ZJsizAq1zKC2xVIDsp64SnEEm2PbTKgKviOyM)
+// 2. Emailed to: malfieri05@gmail.com and isaachodgins@outlook.com
+// Handled by Google Apps Script web app
 

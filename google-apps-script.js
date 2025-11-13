@@ -15,17 +15,17 @@ function doPost(e) {
     var timestamp = new Date();
     
     // Prepare row data in order of your form fields
+    var name = (params.firstName || '') + ' ' + (params.lastName || '');
     var rowData = [
       timestamp,
-      params.name || '',
+      name.trim(),
       params.email || '',
       params.phone || '',
       params.claimId || '',
       params.claimSize || '',
-      params.ncaaId || '',
+      params.ncaaEligibilityId || '',
       params.sport || '',
-      params.yearsPlayed || '',
-      params.institution || ''
+      params.school || ''
     ];
     
     // Append the data to the sheet
@@ -56,6 +56,9 @@ function sendEmailNotifications(params, timestamp) {
     'isaachodgins@outlook.com'
   ];
   
+  // Combine first and last name
+  var fullName = (params.firstName || '') + ' ' + (params.lastName || '');
+  
   // Email subject
   var subject = 'New Block Application Submission';
   
@@ -66,7 +69,7 @@ function sendEmailNotifications(params, timestamp) {
     
     <h3>Personal Information</h3>
     <ul>
-      <li><strong>Name:</strong> ${params.name || 'N/A'}</li>
+      <li><strong>Name:</strong> ${fullName.trim() || 'N/A'}</li>
       <li><strong>Email:</strong> ${params.email || 'N/A'}</li>
       <li><strong>Phone:</strong> ${params.phone || 'N/A'}</li>
     </ul>
@@ -75,14 +78,13 @@ function sendEmailNotifications(params, timestamp) {
     <ul>
       <li><strong>Claim ID:</strong> ${params.claimId || 'N/A'}</li>
       <li><strong>Claim Size:</strong> ${params.claimSize || 'N/A'}</li>
-      <li><strong>NCAA Eligibility Center ID:</strong> ${params.ncaaId || 'N/A'}</li>
+      <li><strong>NCAA Eligibility Center ID:</strong> ${params.ncaaEligibilityId || 'N/A'}</li>
     </ul>
     
     <h3>Athletic Background</h3>
     <ul>
       <li><strong>Sport:</strong> ${params.sport || 'N/A'}</li>
-      <li><strong>Years Played:</strong> ${params.yearsPlayed || 'N/A'}</li>
-      <li><strong>Institution:</strong> ${params.institution || 'N/A'}</li>
+      <li><strong>School/Institution:</strong> ${params.school || 'N/A'}</li>
     </ul>
     
     <hr>
@@ -96,19 +98,18 @@ New Block Application Received
 Submission Time: ${timestamp}
 
 Personal Information:
-- Name: ${params.name || 'N/A'}
+- Name: ${fullName.trim() || 'N/A'}
 - Email: ${params.email || 'N/A'}
 - Phone: ${params.phone || 'N/A'}
 
 Claim Information:
 - Claim ID: ${params.claimId || 'N/A'}
 - Claim Size: ${params.claimSize || 'N/A'}
-- NCAA Eligibility Center ID: ${params.ncaaId || 'N/A'}
+- NCAA Eligibility Center ID: ${params.ncaaEligibilityId || 'N/A'}
 
 Athletic Background:
 - Sport: ${params.sport || 'N/A'}
-- Years Played: ${params.yearsPlayed || 'N/A'}
-- Institution: ${params.institution || 'N/A'}
+- School/Institution: ${params.school || 'N/A'}
 
 ---
 This email was automatically generated from The Block application form.
@@ -129,15 +130,15 @@ This email was automatically generated from The Block application form.
 function testScript() {
   var testData = {
     parameter: {
-      name: 'Test Player',
+      firstName: 'Test',
+      lastName: 'Player',
       email: 'test@example.com',
       phone: '(555) 123-4567',
       claimId: 'TEST123',
       claimSize: '$50,000',
-      ncaaId: 'NCAA456',
+      ncaaEligibilityId: 'NCAA456',
       sport: 'Basketball',
-      yearsPlayed: '4',
-      institution: 'Test University'
+      school: 'Test University'
     }
   };
   
