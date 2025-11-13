@@ -20,7 +20,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
         document.getElementById('countdown-timer').innerHTML = 
-            `<span class="countdown-main">${days}d ${hours}h ${minutes}m</span><span class="countdown-seconds">${seconds}s</span>`;
+            `<span class="countdown-main">${days}d ${hours}h ${minutes}m</span>
+             <span class="countdown-seconds">${seconds}s</span>`;
     }
 
     // Update countdown immediately and then every second

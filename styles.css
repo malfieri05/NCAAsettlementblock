@@ -203,12 +203,15 @@ body {
 
 .countdown-main {
     display: block;
+    line-height: 1;
 }
 
 .countdown-seconds {
     display: block;
     font-size: 80%;
     opacity: 0.9;
+    line-height: 1;
+    margin-top: 4px;
 }
 
 .stat-label {
@@ -1067,6 +1070,11 @@ section {
     
     #countdown-timer {
         font-size: 28px;
+        gap: 2px;
+    }
+    
+    .countdown-seconds {
+        margin-top: 2px;
     }
     
     .what-is-grid {
@@ -1159,6 +1167,12 @@ section {
     
     #countdown-timer {
         font-size: 24px;
+        gap: 2px;
+    }
+    
+    .countdown-seconds {
+        margin-top: 2px;
+        font-size: 75%;
     }
     
     .tooltip {
@@ -1300,6 +1314,12 @@ section {
     
     #countdown-timer {
         font-size: 20px;
+        gap: 2px;
+    }
+    
+    .countdown-seconds {
+        margin-top: 2px;
+        font-size: 70%;
     }
     
     .cta-button {
