@@ -57,17 +57,21 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get form data
         const formData = new FormData(form);
         
+        // Convert FormData to URLSearchParams for Google Apps Script
+        const urlEncodedData = new URLSearchParams(formData).toString();
+        
         // Send to Google Apps Script (also sends emails automatically)
+        // Use mode: 'no-cors' to avoid CORS issues with Google Apps Script
         fetch(form.action, {
             method: 'POST',
-            body: formData,
+            mode: 'no-cors',
             headers: {
-                'Accept': 'application/json'
-            }
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: urlEncodedData
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Form submitted successfully:', data);
+        .then(() => {
+            console.log('Form submitted successfully to Google Apps Script');
             
             // Hide form and show success message
             form.style.display = 'none';
@@ -76,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Scroll to success message
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Reset button state
+            // Reset button state (keep disabled since form is hidden)
             submitButton.disabled = false;
             submitButton.querySelector('.button-text').style.display = 'inline';
             submitButton.querySelector('.button-loading').style.display = 'none';

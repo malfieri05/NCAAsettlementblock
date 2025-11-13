@@ -8,8 +8,11 @@ function doPost(e) {
     // Get the active spreadsheet
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     
-    // Parse the form data
+    // Parse the form data - handle both JSON and URL-encoded
     var params = e.parameter;
+    
+    // Log the submission for debugging
+    Logger.log('Form submission received: ' + JSON.stringify(params));
     
     // Get current timestamp
     var timestamp = new Date();
@@ -34,18 +37,25 @@ function doPost(e) {
     // Send email notifications
     sendEmailNotifications(params, timestamp);
     
-    // Return success response
-    return ContentService.createTextOutput(JSON.stringify({
-      'result': 'success',
-      'message': 'Form submitted successfully'
-    })).setMimeType(ContentService.MimeType.JSON);
+    // Return success response with CORS headers
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        'result': 'success',
+        'message': 'Form submitted successfully'
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
     
   } catch (error) {
+    // Log error for debugging
+    Logger.log('Error: ' + error.toString());
+    
     // Return error response
-    return ContentService.createTextOutput(JSON.stringify({
-      'result': 'error',
-      'message': error.toString()
-    })).setMimeType(ContentService.MimeType.JSON);
+    return ContentService
+      .createTextOutput(JSON.stringify({
+        'result': 'error',
+        'message': error.toString()
+      }))
+      .setMimeType(ContentService.MimeType.JSON);
   }
 }
 
