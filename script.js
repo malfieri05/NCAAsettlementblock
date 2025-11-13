@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const timerElement = document.getElementById('countdown-timer');
         timerElement.innerHTML = 
-            `${days}d ${hours}h ${minutes}m<br><span class="countdown-seconds">${seconds}s</span>`;
+            `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
 
     // Update countdown immediately and then every second
