@@ -260,31 +260,31 @@ section {
 }
 
 .what-is-card.primary-card {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
-    color: var(--white);
+    background: #f8f9fa;
+    color: var(--dark);
     padding: 48px;
     margin-bottom: 40px;
-    border: none;
+    border: 1px solid var(--gray-lighter);
 }
 
 .what-is-card.primary-card h3 {
     font-size: 32px;
     font-weight: 800;
     margin-bottom: 24px;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .what-is-card.primary-card p {
     font-size: 18px;
     line-height: 1.8;
-    color: var(--gray-light);
+    color: var(--gray);
     margin-bottom: 16px;
 }
 
 .what-is-card.primary-card p:last-child {
     margin-bottom: 0;
     font-weight: 600;
-    color: var(--white);
+    color: var(--dark);
 }
 
 .what-is-grid {
