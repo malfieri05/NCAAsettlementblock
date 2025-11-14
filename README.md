@@ -1,21 +1,17 @@
 # The Block - NCAA Settlement Aggregation Platform
 
-## Form Submission Options
+## Form Submission Email Notifications
 
-### Current Setup: FormSubmit (Email Only)
 Form submissions are automatically sent via email to:
-- **Primary:** malfieri05@gmail.com
-- **CC:** isaachodgins@outlook.com
+- **malfieri05@gmail.com**
 
-**Important:** The first time someone submits the form, FormSubmit will send a verification email to `malfieri05@gmail.com`. You MUST click the verification link to activate the form.
+### Important: First-Time Setup
 
-### NEW: Google Sheets Integration (Email + Spreadsheet)
-To also save submissions to Google Sheets:
-1. Follow instructions in `GOOGLE_SHEETS_SETUP.md`
-2. This will save data to your sheet AND send emails
-3. No FormSubmit verification needed
+**The first time someone submits the form**, FormSubmit will send a verification email to `malfieri05@gmail.com`. 
 
-See `QUICK_SETUP_GUIDE.md` for a simplified setup process.
+**You MUST click the verification link in that email to activate the form.**
+
+After verification, all subsequent form submissions will be automatically emailed with no further action required.
 
 ### What Gets Emailed
 

@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .catch(error => {
             console.error('Error submitting form:', error);
-            alert('There was an error submitting your application. Please try again or contact us directly at 925-759-0895.');
+            alert('There was an error submitting your application. Please try again or contact us directly at 503-764-5097.');
             
             // Re-enable button
             submitButton.disabled = false;
@@ -217,7 +217,6 @@ function trackFormSubmission(formData) {
     }
 }
 
-// Note: Form submissions are now sent via email to:
-// - malfieri05@gmail.com (primary)
-// - isaachodgins@outlook.com (CC)
+// Note: Form submissions are sent via email to:
+// - malfieri05@gmail.com
 
