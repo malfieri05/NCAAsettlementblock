@@ -7,11 +7,19 @@ Form submissions are automatically sent via email to:
 
 ### Important: First-Time Setup
 
-**The first time someone submits the form**, FormSubmit will send a verification email to `malfieri05@gmail.com`. 
+**FormSubmit Activation Steps:**
 
-**You MUST click the verification link in that email to activate the form.**
+1. **Submit a test form** on your live site (ncaaplayerblock.com)
+2. **Check malfieri05@gmail.com** for an activation email from FormSubmit
+3. **Click the activation link** in that email (link is valid for 30 days)
+4. Once activated, all subsequent form submissions will be automatically emailed
 
-After verification, all subsequent form submissions will be automatically emailed with no further action required.
+**If activation link shows "Not a valid link" error:**
+- The activation link has expired (links expire after 30 days or if already used)
+- Simply submit another test form to receive a new activation email
+- Each new email address requires its own activation
+
+After activation, all form submissions will be automatically sent to malfieri05@gmail.com with no further action required.
 
 ### What Gets Emailed
 
