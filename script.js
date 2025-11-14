@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get form data
         const formData = new FormData(form);
         
-        // Send to Google Apps Script (also sends emails automatically)
+        // Send to FormSubmit
         fetch(form.action, {
             method: 'POST',
             body: formData,
