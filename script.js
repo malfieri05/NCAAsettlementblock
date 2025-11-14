@@ -57,21 +57,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // Get form data
         const formData = new FormData(form);
         
-        // Convert FormData to URLSearchParams for Google Apps Script
-        const urlEncodedData = new URLSearchParams(formData).toString();
-        
         // Send to Google Apps Script (also sends emails automatically)
-        // Use mode: 'no-cors' to avoid CORS issues with Google Apps Script
         fetch(form.action, {
             method: 'POST',
-            mode: 'no-cors',
+            body: formData,
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: urlEncodedData
+                'Accept': 'application/json'
+            }
         })
-        .then(() => {
-            console.log('Form submitted successfully to Google Apps Script');
+        .then(response => response.json())
+        .then(data => {
+            console.log('Form submitted successfully:', data);
             
             // Hide form and show success message
             form.style.display = 'none';
@@ -80,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Scroll to success message
             successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
-            // Reset button state (keep disabled since form is hidden)
+            // Reset button state
             submitButton.disabled = false;
             submitButton.querySelector('.button-text').style.display = 'inline';
             submitButton.querySelector('.button-loading').style.display = 'none';
@@ -221,8 +217,7 @@ function trackFormSubmission(formData) {
     }
 }
 
-// Note: Form submissions are automatically:
-// 1. Saved to Google Sheets (spreadsheet ID: 1_Zbzs0ZJsizAq1zKC2xVIDsp64SnEEm2PbTKgKviOyM)
-// 2. Emailed to: malfieri05@gmail.com and isaachodgins@outlook.com
-// Handled by Google Apps Script web app
+// Note: Form submissions are now sent via email to:
+// - malfieri05@gmail.com (primary)
+// - isaachodgins@outlook.com (CC)
 
